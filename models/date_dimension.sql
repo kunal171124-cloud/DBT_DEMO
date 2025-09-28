@@ -16,7 +16,11 @@ CASE
     WHEN MONTH(TO_TIMESTAMP(Started_at)) IN (3, 4, 5) THEN 'SPRING'
     WHEN MONTH(TO_TIMESTAMP(Started_at)) IN (6, 7, 8) THEN 'SUMMER'
     ELSE 'AUTUMN'
-END AS SEASON_OF_YEAR
+END AS SEASON_OF_YEAR,
+
+{{function('Started_at')}} AS TENSE,
+
+{{season('Started_at')}} as seas
 
 
 from
